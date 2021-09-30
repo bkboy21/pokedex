@@ -1,0 +1,27 @@
+/* VARIABLES */
+:root {
+  --bright-orange: #F18963;
+  --light-orange: #f5ac91;
+  --bright-green: #A0BE73;
+  --light-green: #c6d8ab;
+  --purple: #B67D9A;
+}
+
+
+
+
+li {
+  padding: 100px;
+  box-sizing: border-box;
+  border: 10px solid var(--light-green);
+  border-radius: 5px;
+  align-content: space-around;
+  margin: 10px;
+
+}
+
+
+body{
+  background-color: crimson;
+}
+

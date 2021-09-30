@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this is my show page </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style2.css">
+
+</head>
+
+<body class=showBody>
+
+
+    <div class="container">
+        <div class="row">
+            <main class="show-main">
+                <h1>
+                    <%= data.name %>
+                </h1>
+                </ul>
+
+                <img src=<%=data.img%>>
+                <ul>
+                    <ul>
+                        <h3>Type</h3>
+                        <li>
+                            <%= data.type %>
+                        </li>
+
+                        <h3>HP</h3>
+                        <li>
+                            <%= data.stats.hp %>
+                        </li>
+                        <h3>Attack</h3>
+                        <li>
+                            <%= data.stats.attack %>
+                        </li>
+                        <h3>Speed</h3>
+                        <li>
+                            <%= data.stats.speed %>
+                        </li>
+                    </ul>
+                    <a href="/pokemon" class="back-btn"></a>
+
+
+                    <a href="/pokemon" type="button" class="btn btn-danger">Back</a>
+
+            </main>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

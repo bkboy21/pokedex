@@ -1,0 +1,38 @@
+/* VARIABLES */
+:root {
+    --bright-orange: #F18963;
+    --light-orange: #f5ac91;
+    --bright-green: #A0BE73;
+    --light-green: #c6d8ab;
+    --purple: #B67D9A;
+  }
+
+
+
+
+.showBody {
+  background-image: url("https://i.imgur.com/nPTjqdO.jpg");
+  
+}
+  
+
+/* body{
+    background-color: crimson;
+} */
+
+
+li{
+    color: crimson;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 10px solid var(--light-green);
+    border-radius: 5px;
+    align-content: space-around;
+    margin: 10px;
+}
+h1{
+    color: crimson;
+}
+h3{
+    color: crimson;
+}
