@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Pokedex App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="/pokemon/new">Create a New Fruit</a>
+    </nav>
+
+    <div class="pokeItem">
+        <header>Pokedex</header>
+        <h1>Edit</h1>
+        <form  action="/pokemon<%=book._id%>?_method=PUT" method="POST">
+            <!--  NOTE: the form is pre-populated with values for the server-->
+            name: <input type="text" name="name" value="<%=book.name%>" /><br />
+            <br />
+      
+            
+            <input type="submit" value="Submit Changes" />
+          </form>
+    </div>
+</body>
+
+</html>
