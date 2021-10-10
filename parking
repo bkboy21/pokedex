@@ -1,1 +1,12 @@
 <form action="/pokemon/<%= data[i].id %>?_method=DELETE" method="POST">
+
+
+
+
+
+working show route 
+
+// SHOW
+app.get('/pokemon/:id', (req, res) => {
+    res.render('show.ejs', { data: Pokemon[req.params.id] });
+});

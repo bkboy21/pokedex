@@ -21,13 +21,10 @@
     <div class="pokeItem">
         <header>Pokedex</header>
         <h1>Edit</h1>
-        <form  action="/pokemon<%=book._id%>?_method=PUT" method="POST">
+        <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
             <!--  NOTE: the form is pre-populated with values for the server-->
-            name: <input type="text" name="name" value="<%=book.name%>" /><br />
-            <br />
-      
-            
-            <input type="submit" value="Submit Changes" />
+            Name: <input type="text" name="name" value="<%=pokemon.name%>" /><br />
+              <input type="submit" name="" value="Submit Changes" />
           </form>
     </div>
 </body>

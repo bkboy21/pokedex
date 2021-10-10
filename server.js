@@ -5,13 +5,13 @@ const methodOverride = require("method-override");
 const Pokemon = require('./models/pokemon.js');
 const port = 3000;
 app.use(express.static("public"));
-
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 
 // INDEX
 app.get('/pokemon', (req, res) => {
-    res.render("index.ejs", { data: Pokemon});
+    res.render("index.ejs", { data: pokemon });
 });
 
 
@@ -25,46 +25,52 @@ app.get('/pokemon/new', (req, res) => {
 
 
 // Delete
-  app.delete('/pokemon/:id', (req, res) => {
+app.delete('/pokemon/:id', (req, res) => {
     pokemon.splice(req.params.id, 1);
     res.redirect('/pokemon');
-  });
+});
 
 
 
 
 
 
-  	// update
-      app.put("/:id", (req, res) => {  
-        pokemon.findByIdAndUpdate(
-          req.params.id,
-          req.body,
-          {
+// update
+app.put("/pokemon/:id", (req, res) => {
+
+
+    pokemon.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
             new: true,
-          },
-          (error, updatedBook) => {
-            res.redirect(`/${req.params.id}`)
-          }
-        )
-      })
+        },
+        (error, updated) => {
+            res.redirect(`/pokemon/${req.params.id}`)
+        }
+    )
+})
 
 
 // CREATE
 app.post('/pokemon', (req, res) => {
     Pokemon.push(req.body);
     res.redirect("/pokemon");
-}); 
+});
 
 
 // Edit
-app.get("/:id/edit", (req, res) => {
-	pokemon.findById(req.params.id, (error, foundBook) => {
-	  res.render("edit.ejs", {
-		gData: foundBook,
-	  })
-	})
-  })
+app.get("/pokemon/:id/edit", (req, res) => {
+    pokemon.findById(req.params.id, (err, foundpoke) => {
+        res.render("edit.ejs", {
+            data: foundpoke,
+        })
+    })
+})
+
+
+
+
 
 
 
@@ -75,6 +81,20 @@ app.get("/:id/edit", (req, res) => {
 app.get('/pokemon/:id', (req, res) => {
     res.render('show.ejs', { data: Pokemon[req.params.id] });
 });
+
+
+
+// app.get('/books/:id', (req, res) => {
+//     pokemon.findById(req.params.id, (err, foundpoke) => {
+//         res.render('show.ejs', {
+//             data: foundpoke,
+//         });
+//     });
+// });
+
+
+
+
 
 
 // Express Web Server port - app.listen
