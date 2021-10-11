@@ -10,3 +10,8 @@ working show route
 app.get('/pokemon/:id', (req, res) => {
     res.render('show.ejs', { data: Pokemon[req.params.id] });
 });
+
+
+edit page 
+
+<form action="/pokemon/<%= data %>?_method=PUT" method="POST">

@@ -2,7 +2,7 @@ const express = require('express');
 const pokemon = require('./models/pokemon.js');
 const app = express();
 const methodOverride = require("method-override");
-const Pokemon = require('./models/pokemon.js');
+
 const port = 3000;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -36,61 +36,32 @@ app.delete('/pokemon/:id', (req, res) => {
 
 
 // update
-app.put("/pokemon/:id", (req, res) => {
-
-
-    pokemon.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {
-            new: true,
-        },
-        (error, updated) => {
-            res.redirect(`/pokemon/${req.params.id}`)
-        }
-    )
-})
+app.put('/pokemon/:id', (req, res) => {
+pokemon[req.params.id] = req.body;
+  res.redirect('/pokemon');
+});
 
 
 // CREATE
 app.post('/pokemon', (req, res) => {
-    Pokemon.push(req.body);
+    pokemon.push(req.body);
     res.redirect("/pokemon");
 });
 
 
 // Edit
 app.get("/pokemon/:id/edit", (req, res) => {
-    pokemon.findById(req.params.id, (err, foundpoke) => {
-        res.render("edit.ejs", {
-            data: foundpoke,
-        })
-    })
-})
-
-
-
-
-
-
-
-
+    console.log(pokemon[req.params.id])
+    res.render('edit.ejs', { data: pokemon[req.params.id] });
+});
 
 
 // SHOW
 app.get('/pokemon/:id', (req, res) => {
-    res.render('show.ejs', { data: Pokemon[req.params.id] });
+    res.render('show.ejs', { data: pokemon[req.params.id] });
 });
 
 
-
-// app.get('/books/:id', (req, res) => {
-//     pokemon.findById(req.params.id, (err, foundpoke) => {
-//         res.render('show.ejs', {
-//             data: foundpoke,
-//         });
-//     });
-// });
 
 
 
