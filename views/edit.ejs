@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/style.css">
-
+nodemon
 
 </head>
 
@@ -22,12 +22,17 @@
         <header>Pokedex</header>
         <h1>Edit</h1>
         
-        <form action="/pokemon/<%= data.id %>?_method=PUT" method="POST">
-            <!--  NOTE: the form is pre-populated with values for the server-->
-            <p><%= data.id %></p>
-            Name: <input type="text" name="name" value="<%=data.id.name%>" /><br />
-              <input type="submit" name="" value="Submit Changes" />
-          </form>
+        
+            <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
+                Name: <input type="text" name="name" /><br/>
+                image: <input type="text" name="img" /><br/>
+                attack: <input type="text" name="attack" /><br/>
+                speed: <input type="text" name="speed" /><br/>
+                type: <input type="text" name="type" /><br/>
+                hp: <input type="text" name="hp" /><br/>
+    
+                <input type="submit" value="edit pokemon"/>
+            </form>
     </div>
 </body>
 

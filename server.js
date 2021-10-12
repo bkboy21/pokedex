@@ -37,14 +37,34 @@ app.delete('/pokemon/:id', (req, res) => {
 
 // update
 app.put('/pokemon/:id', (req, res) => {
-pokemon[req.params.id] = req.body;
+    let obj = {
+        name: req.body.name,
+        img: req.body.img,
+        type: req.body.type,
+        stats: {
+          hp: req.body.hp,
+          attack: req.body.attack,
+          speed: req.body.speed,
+        },
+    };
+pokemon[req.params.id] = obj,
   res.redirect('/pokemon');
 });
 
 
 // CREATE
 app.post('/pokemon', (req, res) => {
-    pokemon.push(req.body);
+    let obj = {
+        name: req.body.name,
+        img: req.body.img,
+        type: req.body.type,
+        stats: {
+          hp: req.body.hp,
+          attack: req.body.attack,
+          speed: req.body.speed,
+        },
+      };
+    pokemon.push(obj);
     res.redirect("/pokemon");
 });
 
@@ -52,13 +72,13 @@ app.post('/pokemon', (req, res) => {
 // Edit
 app.get("/pokemon/:id/edit", (req, res) => {
     console.log(pokemon[req.params.id])
-    res.render('edit.ejs', { data: pokemon[req.params.id] });
+    res.render('edit.ejs', { data: pokemon[req.params.id], index: req.params.id });
 });
 
 
 // SHOW
 app.get('/pokemon/:id', (req, res) => {
-    res.render('show.ejs', { data: pokemon[req.params.id] });
+    res.render('show.ejs', { data: pokemon[req.params.id], index: req.params.id});
 });
 
 
